@@ -24,13 +24,12 @@ function cartReducer(state,action){
     }
     if(action.type==="REMOVE_MEAL"){
         const existingCartMealIndex = state.meals.findIndex(
-            (meal)=>meal.id===action.meal.id
+            (meal)=>meal.id===action.id
         );
         const existingCartMeal=state.meals[existingCartMealIndex];
 
         const updatedMeals=[...state.meals];
         if(existingCartMeal.quantity===1){
-            const updatedMeals = [...state.meals];
             updatedMeals.splice(existingCartMealIndex,1);
         }else{
             const updatedMeal={

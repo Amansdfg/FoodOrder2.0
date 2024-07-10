@@ -9,6 +9,7 @@ export default function Header(){
     const totalCartMeal=cartctx.meals.reduce((total,curr)=>total+curr.quantity,0);
 
     function handleShowCart(){
+        userProgressctx.showCart();
     }
     return(
         <header id="main-header">
@@ -17,7 +18,7 @@ export default function Header(){
                 <h1>ReactFood</h1>
             </div>
             <nav>
-                <Button textOnly>Cart ({totalCartMeal})</Button>
+                <Button onClick={handleShowCart} textOnly>Cart ({totalCartMeal})</Button>
             </nav>
         </header>
     )
